@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include <utility>
 #include <QFileDialog>
-#include <QString>
+#include <string>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -19,7 +19,7 @@ public:
     void addNewInfoOnScreen(const std::pair<QString,QString>* info);
     void setRowCount(int count);
     void showColumnHeaders();
-    QString getFileName();
+    std::string getFileName();
     void cleanTable();
     ~MainWindow();
 
@@ -32,6 +32,6 @@ private slots:
 private:
     Ui::MainWindow *ui;
     QFileDialog _fileDialog;
-    QString _fileName;
+    std::string _fileName;
 };
 #endif // MAINWINDOW_H

@@ -4,6 +4,7 @@
 #include <QString>
 #include <vector>
 #include <utility>
+#include <string>
 
 //------------------include C library--------------------//
 
@@ -20,13 +21,13 @@ class TZipViewerModel
 
 private:
     std::vector< std::pair<QString, QString> > _InternalEntityNames;
-    QString _ZipFileName;
+    std::string _ZipFileName;
     unsigned long long  _ZipFileSizeBytes;
 
 public:
     TZipViewerModel();
     unsigned long long getFileSize();
-    void setZipFileName(QString fileName);
+    void setZipFileName(std::string fileName);
     const std::vector< std::pair<QString, QString> >* GetFilesNameAndSize();
     void openZipFile();
 };

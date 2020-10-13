@@ -17,36 +17,22 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${Qt5Widgets_EXECUTABLE_COMPILE_FLAGS}")
 # Check http://doc.qt.io/qt-5/deployment-android.html for more information.
 # They need to be set before the find_package(Qt5 ...) call.
 
-#if(ANDROID)
-#    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
-#    if (ANDROID_ABI STREQUAL "armeabi-v7a")
-#        set(ANDROID_EXTRA_LIBS
-#            ${CMAKE_CURRENT_SOURCE_DIR}/path/to/libcrypto.so
-#            ${CMAKE_CURRENT_SOURCE_DIR}/path/to/libssl.so)
-#    endif()
-#endif()
 
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
 
-#if(ANDROID)
-#  add_library(ZipProj SHARED
-#    main.cpp
-#    mainwindow.cpp
-#    mainwindow.h
-#    mainwindow.ui
-#  )
-#else()
 LINK_DIRECTORIES(".")
+#add_subdirectory(lib/)
 
-  add_executable(ZipProj
-    main.cpp
+set (SOURCES main.cpp
     mainwindow.cpp
-    mainwindow.h
-    mainwindow.ui
     tzipviewermodel.cpp
-    tzipviewermodel.h
     tcontroller.cpp
+    )
+
+set (HEADERS
+    mainwindow.h
+    tzipviewermodel.h
     tcontroller.h
     mz.h
     mz_compat.h
@@ -69,7 +55,11 @@ LINK_DIRECTORIES(".")
     unzip.h
     zconf.h
     zip.h
-  )
-#endif()
+    )
+
+set (UIS mainwindow.ui)
+
+add_executable(ZipProj ${SOURCES} ${HEADERS} ${UIS} )
+
 
 target_link_libraries(ZipProj PRIVATE Qt${QT_VERSION_MAJOR}::Widgets libminizip.lib zlibstaticd.lib zstd_static.lib)

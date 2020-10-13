@@ -17,7 +17,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_startButton_clicked()
 {
-    _fileName = _fileDialog.getOpenFileName();
+    _fileName = _fileDialog.getOpenFileName().toStdString();
     emit startButtonPress();
 }
 
@@ -50,7 +50,7 @@ void MainWindow::showColumnHeaders()
     ui->tableInfoWidget->setItem(0, 1, new QTableWidgetItem("Размер, (байт)"));
 }
 
-QString MainWindow::getFileName()
+std::string MainWindow::getFileName()
 {
     return _fileName;
 }
