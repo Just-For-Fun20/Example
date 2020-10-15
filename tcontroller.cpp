@@ -17,10 +17,6 @@ void TController::showData()
 {
     _zipViewer->setZipFileName(_zipWindow->getFileName());
     _zipViewer->openZipFile();
-    _zipWindow->cleanTable();
     auto data = _zipViewer->GetFilesNameAndSize();
-
-    for (size_t i = 0; i < data->size(); i++) {
-        _zipWindow->addNewInfoOnScreen(&data->at(i));
-    }
+    _zipWindow->tableViewInit(data);
 }

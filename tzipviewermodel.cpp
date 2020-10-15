@@ -17,8 +17,7 @@ TZipViewerModel::TZipViewerModel()
     _ZipFileSizeBytes = 0;
 }
 
-
-const std::vector< std::pair<QString, QString> >* TZipViewerModel::GetFilesNameAndSize()
+std::vector< std::pair<QString, QString> >* TZipViewerModel::GetFilesNameAndSize()
 {
     return &_InternalEntityNames;
 }
@@ -35,6 +34,7 @@ void TZipViewerModel::setZipFileName(std::string fileName)
 
 void TZipViewerModel::openZipFile()
 {
+    if (_InternalEntityNames.size()) {_InternalEntityNames.clear();}
     int32_t err = MZ_OK;
     void *zip_instance = NULL;
     mz_zip_file *cd_info = NULL;

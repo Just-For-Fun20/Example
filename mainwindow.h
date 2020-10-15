@@ -5,6 +5,8 @@
 #include <utility>
 #include <QFileDialog>
 #include <string>
+#include <vector>
+#include "tcustomtablemodel.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -16,11 +18,8 @@ class MainWindow : public QMainWindow
 
 public:
     MainWindow(QWidget *parent = nullptr);
-    void addNewInfoOnScreen(const std::pair<QString,QString>* info);
-    void setRowCount(int count);
-    void showColumnHeaders();
     std::string getFileName();
-    void cleanTable();
+    void tableViewInit(std::vector< std::pair<QString, QString> >* data);
     ~MainWindow();
 
 signals:

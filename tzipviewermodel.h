@@ -28,7 +28,7 @@ public:
     TZipViewerModel();
     unsigned long long getFileSize();
     void setZipFileName(std::string fileName);
-    const std::vector< std::pair<QString, QString> >* GetFilesNameAndSize();
+    std::vector< std::pair<QString, QString> >* GetFilesNameAndSize();
     void openZipFile();
 };
 

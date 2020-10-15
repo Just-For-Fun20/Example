@@ -6,17 +6,17 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>518</width>
-    <height>307</height>
+    <width>392</width>
+    <height>357</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QHBoxLayout" name="horizontalLayout">
+   <layout class="QHBoxLayout" name="horizontalLayout_2">
     <item>
-     <layout class="QVBoxLayout" name="verticalLayout">
+     <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
        <widget class="QPushButton" name="startButton">
         <property name="text">
@@ -24,19 +24,10 @@
         </property>
        </widget>
       </item>
+      <item>
+       <widget class="QTableView" name="_tableView"/>
+      </item>
      </layout>
-    </item>
-    <item>
-     <widget class="QTableWidget" name="tableInfoWidget">
-      <property name="rowCount">
-       <number>0</number>
-      </property>
-      <property name="columnCount">
-       <number>2</number>
-      </property>
-      <column/>
-      <column/>
-     </widget>
     </item>
    </layout>
   </widget>
@@ -45,7 +36,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>518</width>
+     <width>392</width>
      <height>21</height>
     </rect>
    </property>
