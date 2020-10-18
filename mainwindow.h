@@ -19,7 +19,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     std::string getFileName();
-    void tableViewInit(std::vector< std::pair<QString, QString> >* data);
+    void tableViewInit(const std::vector< std::pair<QString, QString> > &data);
     ~MainWindow();
 
 signals:

@@ -7,8 +7,6 @@
 #include "mz_zip.h"
 #include "mz_strm.h"
 #include "mz_zip_rw.h"
-//#include "mz_zip_rw.c"
-
 
 #include <stdio.h>
 TZipViewerModel::TZipViewerModel()
@@ -17,9 +15,9 @@ TZipViewerModel::TZipViewerModel()
     _ZipFileSizeBytes = 0;
 }
 
-std::vector< std::pair<QString, QString> >* TZipViewerModel::GetFilesNameAndSize()
+const std::vector< std::pair<QString, QString> > TZipViewerModel::GetFilesNameAndSize()
 {
-    return &_InternalEntityNames;
+    return _InternalEntityNames;
 }
 
 unsigned long long TZipViewerModel::getFileSize()

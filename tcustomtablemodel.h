@@ -9,10 +9,10 @@
 class TCustomTableModel : public QAbstractTableModel
 {
 private:
-    std::vector< std::pair<QString, QString> >* _data;
+    std::vector< std::pair<QString, QString> > _data;
 public:
     TCustomTableModel();
-    void setData(std::vector< std::pair<QString, QString> >* data);
+    void setData(const std::vector< std::pair<QString, QString> > &data);
     void unsetData();
 
     int rowCount(const QModelIndex &parent = QModelIndex()) const Q_DECL_OVERRIDE;

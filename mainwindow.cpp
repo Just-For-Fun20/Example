@@ -26,7 +26,7 @@ std::string MainWindow::getFileName()
     return _fileName;
 }
 
-void MainWindow::tableViewInit(std::vector<std::pair<QString, QString> > *data)
+void MainWindow::tableViewInit(const std::vector<std::pair<QString, QString> > &data)
 {
     TCustomTableModel *model = new TCustomTableModel();
     model->setData(data);
