@@ -21,40 +21,21 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${Qt5Widgets_EXECUTABLE_COMPILE_FLAGS}")
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
 
-LINK_DIRECTORIES(".")
-#add_subdirectory(lib/)
+add_subdirectory(${CMAKE_SOURCE_DIR}/3rdParty/minizip)
+
 
 set (SOURCES main.cpp
     mainwindow.cpp
     tzipviewermodel.cpp
     tcontroller.cpp
+    tcustomtablemodel.cpp
     )
 
 set (HEADERS
     mainwindow.h
     tzipviewermodel.h
     tcontroller.h
-    mz.h
-    mz_compat.h
-    mz_crypt.h
-    mz_os.h
-    mz_strm.h
-    mz_strm_buf.h
-    mz_strm_bzip.h
-    mz_strm_libcomp.h
-    mz_strm_lzma.h
-    mz_strm_mem.h
-    mz_strm_os.h
-    mz_strm_pkcrypt.h
-    mz_strm_split.h
-    mz_strm_wzaes.h
-    mz_strm_zlib.h
-    mz_strm_zstd.h
-    mz_zip.h
-    mz_zip_rw.h
-    unzip.h
-    zconf.h
-    zip.h
+    tcustomtablemodel.h
     )
 
 set (UIS mainwindow.ui)
@@ -62,4 +43,4 @@ set (UIS mainwindow.ui)
 add_executable(ZipProj ${SOURCES} ${HEADERS} ${UIS} )
 
 
-target_link_libraries(ZipProj PRIVATE Qt${QT_VERSION_MAJOR}::Widgets libminizip.lib zlibstaticd.lib zstd_static.lib)
+target_link_libraries(ZipProj PRIVATE Qt${QT_VERSION_MAJOR}::Widgets minizip z )
